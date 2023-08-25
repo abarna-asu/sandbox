@@ -1,8 +1,19 @@
+import React, { useRef } from "react"
 import classNames from "classnames"
-import { useRef } from "react"
-import { InputCheckboxComponent } from "./types"
 
-export const InputCheckbox: InputCheckboxComponent = ({ id, checked = false, disabled, onChange }) => {
+type InputCheckboxProps = {
+  id: string | number
+  checked?: boolean
+  onChange: (newValue: boolean) => void
+  disabled?: boolean
+}
+
+export const InputCheckbox: React.FC<InputCheckboxProps> = ({
+  id,
+  checked = false,
+  disabled,
+  onChange,
+}) => {
   const { current: inputId } = useRef(`RampInputCheckbox-${id}`)
 
   return (
